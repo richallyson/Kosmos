@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 115569339
+    locked: 0
+  - name: Aliens
+    uniqueID: 3426883795
+    locked: 0
+  - name: Player
+    uniqueID: 683453539
+    locked: 0
+  - name: Effects
+    uniqueID: 1150993659
+    locked: 0
