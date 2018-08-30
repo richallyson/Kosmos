@@ -91,7 +91,7 @@ public class Player : MonoBehaviour {
     void Shoot1() {
         ani.SetTrigger("Shoot1");
         GameObject b = Instantiate(bullet);
-        
+        GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.04f);
         if (sr.flipX) {
             b.transform.position = new Vector3(transform.Find("bulletPosition").localPosition.x + transform.position.x, transform.Find("bulletPosition").position.y, 0);
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour {
             energy--;
             ani.SetTrigger("Shoot2");
             GameObject b = Instantiate(bullet2);
-
+            GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.1f, 0.12f);
             if (sr.flipX) {
                 b.transform.position = new Vector3(transform.Find("bulletPosition").localPosition.x * 1.1f + transform.position.x, transform.Find("bulletPosition").position.y, 0);
                 b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * 1.2f, 0);

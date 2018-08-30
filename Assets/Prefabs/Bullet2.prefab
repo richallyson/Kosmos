@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Explosion: {fileID: 1447411683009572, guid: 7f332115421bf274eb7374d353abca6a, type: 2}
   useEffect: 1
-  delay: 0.6
+  delay: 1
 --- !u!198 &198070969351461858
 ParticleSystem:
   m_ObjectHideFlags: 1
