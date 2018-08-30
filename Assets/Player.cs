@@ -6,8 +6,10 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb;
     public float speed;
     public GameObject bullet;
+    public GameObject bullet2;
     public float bulletSpeed;
     private SpriteRenderer sr;
+    private Animator ani;
 
     public float DashSpeed;
     public float DashTime;
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour {
         Trail2 = transform.Find("Trail2").gameObject;
         Rastro1 = transform.Find("Rastro1").gameObject;
         Rastro2 = transform.Find("Rastro2").gameObject;
+        ani = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -55,7 +58,10 @@ public class Player : MonoBehaviour {
             }
         }
         if (Input.GetButtonDown("Fire1")) {
-            Shoot();
+            Shoot1();
+        }
+        if (Input.GetButtonDown("Fire3")) {
+            Shoot2();
         }
         if (Input.GetButtonDown("Dash")) {
             Dash();
@@ -82,7 +88,8 @@ public class Player : MonoBehaviour {
             rastroEmission2.rateOverTimeMultiplier = 0;
         }
     }
-    void Shoot() {
+    void Shoot1() {
+        ani.SetTrigger("Shoot1");
         GameObject b = Instantiate(bullet);
         
         if (sr.flipX) {
@@ -91,6 +98,21 @@ public class Player : MonoBehaviour {
         } else {
             b.transform.position = new Vector3(transform.position.x - transform.Find("bulletPosition").localPosition.x, transform.Find("bulletPosition").position.y, 0);
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(-bulletSpeed, 0);
+        }
+    }
+    void Shoot2() {
+        if (energy > 0) {
+            energy--;
+            ani.SetTrigger("Shoot2");
+            GameObject b = Instantiate(bullet2);
+
+            if (sr.flipX) {
+                b.transform.position = new Vector3(transform.Find("bulletPosition").localPosition.x * 1.1f + transform.position.x, transform.Find("bulletPosition").position.y, 0);
+                b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * 1.2f, 0);
+            } else {
+                b.transform.position = new Vector3(transform.position.x - transform.Find("bulletPosition").localPosition.x * 1.1f, transform.Find("bulletPosition").position.y, 0);
+                b.GetComponent<Rigidbody2D>().velocity = new Vector2(-bulletSpeed * 1.2f, 0);
+            }
         }
     }
     void Flip(float n) {
