@@ -133,7 +133,7 @@ public class Player : MonoBehaviour {
                 DashDirection = 225;
             }
             if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0) {
-                DashDirection = 170;
+                DashDirection = 270;
             }
             if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0) {
                 DashDirection = 315;

@@ -246,12 +246,12 @@ MonoBehaviour:
   bullet: {fileID: 1504718177669626, guid: eaa4bc2dacab4ae4eb2549d2f6dc5063, type: 2}
   bulletSpeed: 20
   DashSpeed: 50
-  DashTime: 0.08
+  DashTime: 0.06
   Dashing: 0
   DashDirection: 0
   energy: 0
   energyMax: 2
-  energyTime: 3
+  energyTime: 0.8
 --- !u!198 &198113091156118396
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -434,6 +434,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: DashTime
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: energyTime
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d9c48a582f3b1c42991975b5e9fddcb, type: 2}
   m_IsPrefabAsset: 0
