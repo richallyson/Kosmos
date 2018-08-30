@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inimigo
   - Alien
+  - Bullet
   layers:
   - Default
   - TransparentFX

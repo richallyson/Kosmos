@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
     public float bulletSpeed;
     private SpriteRenderer sr;
     private Animator ani;
+    public float ShootDelay;
+    private float shootCounter;
 
     public float DashSpeed;
     public float DashTime;
@@ -22,8 +24,8 @@ public class Player : MonoBehaviour {
     public float energyTime;
     private float energyCounter;
 
-    private GameObject Trail1;
-    private GameObject Trail2;
+    private GameObject Carga1;
+    private GameObject Carga2;
     private GameObject Rastro1;
     private GameObject Rastro2;
     private float rastroRate;
@@ -31,15 +33,17 @@ public class Player : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        Trail1 = transform.Find("Trail1").gameObject;
-        Trail2 = transform.Find("Trail2").gameObject;
+        Carga1 = transform.Find("Carga1").gameObject;
+        Carga2 = transform.Find("Carga2").gameObject;
         Rastro1 = transform.Find("Rastro1").gameObject;
         Rastro2 = transform.Find("Rastro2").gameObject;
         ani = GetComponent<Animator>();
+        shootCounter = 0;
     }
 
     // Update is called once per frame
     void Update() {
+        shootCounter += Time.deltaTime;
         if (Dashing) {
             rb.velocity = new Vector2(DashSpeed * Mathf.Cos(DashDirection * Mathf.Deg2Rad), DashSpeed * Mathf.Sin(DashDirection * Mathf.Deg2Rad));
             DashCounter += Time.deltaTime;
@@ -57,11 +61,13 @@ public class Player : MonoBehaviour {
                 rb.velocity = new Vector2(0, 0);
             }
         }
-        if (Input.GetButtonDown("Fire1")) {
-            Shoot1();
-        }
-        if (Input.GetButtonDown("Fire3")) {
-            Shoot2();
+        if (shootCounter > ShootDelay) {
+            if (Input.GetButtonDown("Fire1")) {
+                Shoot1();
+            }
+            if (Input.GetButtonDown("Fire3")) {
+                Shoot2();
+            }
         }
         if (Input.GetButtonDown("Dash")) {
             Dash();
@@ -73,10 +79,10 @@ public class Player : MonoBehaviour {
                 energyCounter = 0;
             }
         }
-        var emission = Trail1.GetComponent<ParticleSystem>().emission;
-        emission.rateOverTimeMultiplier = Mathf.Min(energy, 1)*150;
-        var emission2 = Trail2.GetComponent<ParticleSystem>().emission;
-        emission2.rateOverTimeMultiplier = Mathf.Max(energy - 1, 0)*250;
+        var emission = Carga1.GetComponent<ParticleSystem>().emission;
+        emission.rateOverTimeMultiplier = Mathf.Min(energy, 1)*20;
+        var emission2 = Carga2.GetComponent<ParticleSystem>().emission;
+        emission2.rateOverTimeMultiplier = Mathf.Max(energy - 1, 0)*30;
         var rastroEmission = Rastro1.GetComponent<ParticleSystem>().emission;
         var rastroEmission2 = Rastro2.GetComponent<ParticleSystem>().emission;
 
@@ -99,6 +105,7 @@ public class Player : MonoBehaviour {
             b.transform.position = new Vector3(transform.position.x - transform.Find("bulletPosition").localPosition.x, transform.Find("bulletPosition").position.y, 0);
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(-bulletSpeed, 0);
         }
+        shootCounter = 0;
     }
     void Shoot2() {
         if (energy > 0) {
@@ -114,6 +121,7 @@ public class Player : MonoBehaviour {
                 b.GetComponent<Rigidbody2D>().velocity = new Vector2(-bulletSpeed * 1.2f, 0);
             }
         }
+        shootCounter = 0;
     }
     void Flip(float n) {
         if(n < 0) {
