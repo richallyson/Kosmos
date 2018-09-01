@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
     private Animator ani;
     public float ShootDelay;
     private float shootCounter;
+    public GameObject bigblink1;
+    public GameObject bigblink2;
 
     public float DashSpeed;
     public float DashTime;
@@ -29,6 +31,8 @@ public class Player : MonoBehaviour {
     private GameObject Rastro1;
     private GameObject Rastro2;
     private float rastroRate;
+
+    public int hp;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -98,12 +102,16 @@ public class Player : MonoBehaviour {
         ani.SetTrigger("Shoot1");
         GameObject b = Instantiate(bullet);
         GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.04f);
+        GameObject blink = Instantiate(bigblink1);
         if (sr.flipX) {
             b.transform.position = new Vector3(transform.Find("bulletPosition").localPosition.x + transform.position.x, transform.Find("bulletPosition").position.y, 0);
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
+            blink.transform.position = new Vector3(transform.Find("bulletPosition").localPosition.x + transform.position.x, transform.Find("bulletPosition").position.y, 0);
+
         } else {
             b.transform.position = new Vector3(transform.position.x - transform.Find("bulletPosition").localPosition.x, transform.Find("bulletPosition").position.y, 0);
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(-bulletSpeed, 0);
+            blink.transform.position = new Vector3(transform.position.x - transform.Find("bulletPosition").localPosition.x, transform.Find("bulletPosition").position.y, 0);
         }
         shootCounter = 0;
     }
@@ -113,12 +121,15 @@ public class Player : MonoBehaviour {
             ani.SetTrigger("Shoot2");
             GameObject b = Instantiate(bullet2);
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.1f, 0.12f);
+            GameObject blink = Instantiate(bigblink2);
             if (sr.flipX) {
                 b.transform.position = new Vector3(transform.Find("bulletPosition").localPosition.x * 1.1f + transform.position.x, transform.Find("bulletPosition").position.y, 0);
                 b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * 1.2f, 0);
+                blink.transform.position = new Vector3(transform.Find("bulletPosition").localPosition.x + transform.position.x, transform.Find("bulletPosition").position.y, 0);
             } else {
                 b.transform.position = new Vector3(transform.position.x - transform.Find("bulletPosition").localPosition.x * 1.1f, transform.Find("bulletPosition").position.y, 0);
                 b.GetComponent<Rigidbody2D>().velocity = new Vector2(-bulletSpeed * 1.2f, 0);
+                blink.transform.position = new Vector3(transform.position.x - transform.Find("bulletPosition").localPosition.x, transform.Find("bulletPosition").position.y, 0);
             }
         }
         shootCounter = 0;

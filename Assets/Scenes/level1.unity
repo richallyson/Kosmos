@@ -484,14 +484,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4659278192823236, guid: 9d9c48a582f3b1c42991975b5e9fddcb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4587786341778830, guid: 9d9c48a582f3b1c42991975b5e9fddcb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d9c48a582f3b1c42991975b5e9fddcb, type: 2}
   m_IsPrefabAsset: 0
@@ -553,7 +545,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 576483684}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8be6341e1ce3f4cec9902bc34f72d20a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -606,7 +598,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c48d7dbf78d896e4d824c4a34373ea13, type: 3}
-  m_Color: {r: 0.8207547, g: 0.5711385, b: 0.30584726, a: 1}
+  m_Color: {r: 0.9622642, g: 0.84878963, b: 0.9153334, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
