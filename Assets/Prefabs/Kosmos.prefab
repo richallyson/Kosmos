@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 95087581605831420}
   m_Layer: 0
   m_Name: Kosmos
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,9 @@ MonoBehaviour:
   energy: 0
   energyMax: 2
   energyTime: 1.4
-  hp: 0
+  hp: 6
+  MaxHp: 6
+  score: 0
 --- !u!198 &198113091156118396
 ParticleSystem:
   m_ObjectHideFlags: 1

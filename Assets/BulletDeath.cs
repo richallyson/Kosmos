@@ -9,11 +9,13 @@ public class BulletDeath : MonoBehaviour {
     public bool useEffect;
     public float delay;
     private ParticleSystem ps;
+    private Player player;
 	// Use this for initialization
 	void Start () {
         sr = GetComponent<SpriteRenderer>();
         cc = GetComponent<CircleCollider2D>();
         ps = GetComponent<ParticleSystem>();
+        player = GameObject.Find("Kosmos").GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
@@ -24,7 +26,7 @@ public class BulletDeath : MonoBehaviour {
         if(collision.gameObject.tag == "Alien") {
             collision.gameObject.GetComponent<Alien>().Death();
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.15f, 0.2f);
-            print("here");
+            player.IncreaseScore(collision.gameObject.GetComponent<Alien>().value);
         }
         if (useEffect) {
             GameObject exp = Instantiate(Explosion);

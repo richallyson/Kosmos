@@ -32,8 +32,12 @@ public class Player : MonoBehaviour {
     private GameObject Rastro2;
     private float rastroRate;
 
+
     public int hp;
-	// Use this for initialization
+    public int MaxHp = 6;
+    public int score;
+    private HealthController hc;
+    // Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -43,6 +47,8 @@ public class Player : MonoBehaviour {
         Rastro2 = transform.Find("Rastro2").gameObject;
         ani = GetComponent<Animator>();
         shootCounter = 0;
+        hc = GameObject.Find("Health").GetComponent<HealthController>();
+        hp = MaxHp;
     }
 
     // Update is called once per frame
@@ -141,6 +147,19 @@ public class Player : MonoBehaviour {
         if(n > 0) {
             sr.flipX = true;
         }
+    }
+    public void IncreaseScore(int n) {
+        score += n;
+    }
+    public void TakeDamage(int n) {
+        if(hp - n >= 0) {
+            hp -= n;
+            hc.SetBar(hp);
+        }
+
+    }
+    public void Cure(int n) {
+        hp = Mathf.Min(hp + n, MaxHp);
     }
     void Dash() {
         if (energy > 0) {
