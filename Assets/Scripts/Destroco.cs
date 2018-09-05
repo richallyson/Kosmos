@@ -8,6 +8,8 @@ public class Destroco : MonoBehaviour {
     private SpriteRenderer sr;
     private float angle;
     public float speed;
+    public float timerDeath;
+    private float timer;
 	// Use this for initialization
 	void Start () {
         bc = GetComponent<BoxCollider2D>();
@@ -18,12 +20,15 @@ public class Destroco : MonoBehaviour {
        // spd = new Vector2(-1, 0);
         spd = spd * speed;
         rb.velocity = spd;
-
+        timer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        timer += Time.deltaTime;
+        if(timer >= timerDeath) {
+            Destroy(gameObject);
+        }
         
 	}
 }
