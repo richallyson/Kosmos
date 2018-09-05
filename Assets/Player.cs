@@ -37,6 +37,10 @@ public class Player : MonoBehaviour {
     public int MaxHp = 6;
     public int score;
     private HealthController hc;
+
+    public bool hasControl;
+    private float controlDelay;
+    private float lastTimeControl;
     // Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -49,11 +53,15 @@ public class Player : MonoBehaviour {
         shootCounter = 0;
         hc = GameObject.Find("Health").GetComponent<HealthController>();
         hp = MaxHp;
+        lastTimeControl = 0;
     }
 
     // Update is called once per frame
     void Update() {
         shootCounter += Time.deltaTime;
+        if(Time.time - lastTimeControl > controlDelay) {
+            hasControl = true;
+        }
         if (Dashing) {
             rb.velocity = new Vector2(DashSpeed * Mathf.Cos(DashDirection * Mathf.Deg2Rad), DashSpeed * Mathf.Sin(DashDirection * Mathf.Deg2Rad));
             DashCounter += Time.deltaTime;
@@ -63,25 +71,28 @@ public class Player : MonoBehaviour {
             rastroRate = 30;
         } else {
             rastroRate = 10;
-            if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 || Mathf.Abs(Input.GetAxis("Vertical")) > 0) {
-                float angle = Mathf.Atan2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
-                rb.velocity = new Vector2(Mathf.Cos(angle) * Mathf.Abs(Input.GetAxis("Horizontal")) * speed, Mathf.Sin(angle) * Mathf.Abs(Input.GetAxis("Vertical")) * speed);
-                Flip(Input.GetAxis("Horizontal"));
-            } else {
-                rb.velocity = new Vector2(0, 0);
+            if (hasControl) {
+                if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 || Mathf.Abs(Input.GetAxis("Vertical")) > 0) {
+                    float angle = Mathf.Atan2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+                    rb.velocity = new Vector2(Mathf.Cos(angle) * Mathf.Abs(Input.GetAxis("Horizontal")) * speed, Mathf.Sin(angle) * Mathf.Abs(Input.GetAxis("Vertical")) * speed);
+                    Flip(Input.GetAxis("Horizontal"));
+                } else {
+                    rb.velocity = new Vector2(0, 0);
+                }
+                if (shootCounter > ShootDelay) {
+                    if (Input.GetButtonDown("Fire1")) {
+                        Shoot1();
+                    }
+                    if (Input.GetButtonDown("Fire3")) {
+                        Shoot2();
+                    }
+                }
+                if (Input.GetButtonDown("Dash")) {
+                    Dash();
+                }
             }
         }
-        if (shootCounter > ShootDelay) {
-            if (Input.GetButtonDown("Fire1")) {
-                Shoot1();
-            }
-            if (Input.GetButtonDown("Fire3")) {
-                Shoot2();
-            }
-        }
-        if (Input.GetButtonDown("Dash")) {
-            Dash();
-        }
+
         if (energy < energyMax) {
             energyCounter += Time.deltaTime;
             if (energyCounter > energyTime) {
@@ -103,6 +114,12 @@ public class Player : MonoBehaviour {
             rastroEmission.rateOverTimeMultiplier = rastroRate;
             rastroEmission2.rateOverTimeMultiplier = 0;
         }
+    }
+
+    public void OffControl(float delay) {
+        lastTimeControl = Time.time;
+        controlDelay = delay;
+        hasControl = false;
     }
     void Shoot1() {
         ani.SetTrigger("Shoot1");
@@ -152,7 +169,8 @@ public class Player : MonoBehaviour {
         score += n;
     }
     public void TakeDamage(int n) {
-        if(hp - n >= 0) {
+
+        if(hasControl && hp - n >= 0 && !Dashing) {
             hp -= n;
             hc.SetBar(hp);
         }
