@@ -23,12 +23,18 @@ public class BulletDeath : MonoBehaviour {
 		
 	}
     private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.tag == "Alien") {
+        if(collision.gameObject.tag == "Alien" && gameObject.tag == "Bullet") {
             collision.gameObject.GetComponent<EnemyLifeController>().damage(1);
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.15f, 0.2f);
-            //está sendo incrementado no inimigo
+            //está sendo implementado no inimigo
            // player.IncreaseScore(collision.gameObject.GetComponent<Alien>().value);
         }
+
+        if(collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet") {
+            collision.gameObject.GetComponent<Player>().TakeDamage(1);
+            GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.2f, 0.3f);
+        }
+
         if (useEffect) {
             GameObject exp = Instantiate(Explosion);
             exp.transform.position = transform.position;
