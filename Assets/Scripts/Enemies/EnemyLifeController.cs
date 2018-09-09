@@ -20,6 +20,7 @@ public class EnemyLifeController : MonoBehaviour {
     private float hue = 1.0f;
     public bool hasDeathAnimation = false;
 
+    public GameObject lilImpact;
     public void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -72,6 +73,10 @@ public class EnemyLifeController : MonoBehaviour {
             collision.gameObject.GetComponent<Player>().TakeDamage(1);
             //Death();
             knockBack(5, collision.transform);
+            collision.gameObject.GetComponent<Player>().knockBack(5, transform);
+            damage(1);
+            GameObject lp = Instantiate(lilImpact);
+            lp.transform.position = collision.GetContact(0).point;
             //falta dar o knocBack no player também
         }
     }
