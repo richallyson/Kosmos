@@ -94,6 +94,7 @@ MonoBehaviour:
   Explosion: {fileID: 1113238001025348, guid: 802efda5e697a754fb2e47a9465feae8, type: 2}
   useEffect: 1
   delay: 0.6
+  timerDeath: 1.5
 --- !u!198 &198082721078035514
 ParticleSystem:
   m_ObjectHideFlags: 1

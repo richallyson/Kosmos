@@ -35,6 +35,10 @@ public class BrainEaterBehavior : MonoBehaviour {
         }
 
 	}
-
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Player" && eating) {
+            collision.gameObject.GetComponent<Player>().TakeDamage(2);
+        }
+    }
 
 }

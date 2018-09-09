@@ -219,4 +219,14 @@ public class Player : MonoBehaviour {
         }
 
     }
+    public void knockBack(float speed, Transform col) {
+        float dif_x = col.position.x - transform.position.x;
+        float dif_y = col.position.y - transform.position.y;
+
+        float ang = Mathf.Atan2(-dif_y, -dif_x);
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(speed * Mathf.Cos(ang), speed * Mathf.Sin(ang));
+        OffControl(0.5f);
+
+    }
 }
