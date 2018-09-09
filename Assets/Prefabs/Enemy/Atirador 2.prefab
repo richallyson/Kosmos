@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1388238213974144, guid: db3136d8e1e72ba47bc909701a7a344c, type: 2}
-  bullet_speed: 20
+  bullet_speed: 15
   mov_speed: 3
 --- !u!212 &212452374168340036
 SpriteRenderer:
