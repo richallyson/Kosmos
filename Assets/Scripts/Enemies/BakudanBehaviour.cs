@@ -13,8 +13,11 @@ public class BakudanBehaviour : MonoBehaviour {
     private bool canWait = false;
 
     public float explosionRadius = 3;
+    public GameObject explosion;
 
-    private float borderDist = 5;
+    public float borderDist = 5;
+
+    private bool invested = false;
 
 
     private GameObject player;
@@ -30,8 +33,6 @@ public class BakudanBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        moveToPosition();
-        
 		if (canWait) {
             if (Time.time - waitTimeTimer >= waitTime) {
                 investidaTrovao();
@@ -46,7 +47,7 @@ public class BakudanBehaviour : MonoBehaviour {
     private void moveToPosition() {
         Vector2 tmp = new Vector2(transform.position.x, transform.position.y);
 
-        tmp.x += 5 * Time.deltaTime;
+        tmp.x -= 2 * Time.deltaTime;
 
         transform.position = tmp;
 
@@ -58,6 +59,8 @@ public class BakudanBehaviour : MonoBehaviour {
 
     //o nome é uma brincadeirinha
     private void investidaTrovao() {
+        if (invested)
+            return;
         Transform col = player.transform;
         float dif_x = col.position.x - transform.position.x;
         float dif_y = col.position.y - transform.position.y;
@@ -65,5 +68,18 @@ public class BakudanBehaviour : MonoBehaviour {
         float ang = Mathf.Atan2(dif_y, dif_x);
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(attackSpeed * Mathf.Cos(ang), attackSpeed * Mathf.Sin(ang));
+        invested = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+
+    private void explode() {
+        GameObject b = Instantiate(explosion);
+        //GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.04f);
+        b.transform.position = transform.position;
+        //b.GetComponent<BakudanExplosion>().explode();
     }
 }
