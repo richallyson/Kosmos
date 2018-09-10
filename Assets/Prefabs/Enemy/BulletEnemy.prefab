@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114933746384275202}
   - component: {fileID: 199475006670105378}
   - component: {fileID: 198812567319767860}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BulletEnemy
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -94,6 +94,8 @@ MonoBehaviour:
   Explosion: {fileID: 1113238001025348, guid: 802efda5e697a754fb2e47a9465feae8, type: 2}
   useEffect: 1
   delay: 0.6
+  timerDeath: 2
+  Damage: 1
 --- !u!198 &198812567319767860
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -4716,8 +4718,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -868083501
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 84e96ece169414743b2b8d4d32d70a5a, type: 3}
   m_Color: {r: 1, g: 0.3915094, b: 0.3915094, a: 1}
