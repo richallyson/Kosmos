@@ -8,7 +8,7 @@ public class Atirador2Behaviour : MonoBehaviour {
     public float bullet_speed;
 
     private float shoot_timer = 0.0f;
-    private float shoot_cooldown = 1.0f;
+    public float shoot_cooldown = 1.0f;
 
     public float mov_speed;
 
@@ -19,6 +19,8 @@ public class Atirador2Behaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GetComponent<EnemyLifeController>().dying)
+            return;
         if (Time.time - shoot_timer >= shoot_cooldown)
         {
             shoot();
