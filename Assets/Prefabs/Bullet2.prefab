@@ -95,6 +95,7 @@ MonoBehaviour:
   useEffect: 1
   delay: 1
   timerDeath: 1.8
+  Damage: 3
 --- !u!198 &198070969351461858
 ParticleSystem:
   m_ObjectHideFlags: 1

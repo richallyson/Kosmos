@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Objeto
   - EnemyBullet
+  - EnemyDeathBound
   layers:
   - Default
   - TransparentFX

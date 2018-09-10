@@ -30,7 +30,7 @@ public class BrainEaterBehavior : MonoBehaviour {
         }
         print(ani.GetCurrentAnimatorStateInfo(0).IsName("Eating"));
         eating = ani.GetCurrentAnimatorStateInfo(0).IsName("Eating");
-        if (eating) {
+        if (eating && !GetComponent<EnemyLifeController>().dying) {
             rb.velocity = new Vector2(-2*speed, 0);
         }
 
