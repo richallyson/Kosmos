@@ -10,6 +10,8 @@ public class Destroco : MonoBehaviour {
     public float speed;
     public float timerDeath;
     private float timer;
+    public GameObject destExplosion;
+    public float deathDelay;
 	// Use this for initialization
 	void Start () {
         bc = GetComponent<BoxCollider2D>();
@@ -27,8 +29,19 @@ public class Destroco : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
         if(timer >= timerDeath) {
-            Destroy(gameObject);
+            AutoDestroy();
         }
-        
 	}
+    public void AutoDestroy() {
+        GameObject exp = Instantiate(destExplosion);
+        exp.transform.position = transform.position;
+        sr.enabled = false;
+        bc.enabled = false;
+        Destroy(gameObject, deathDelay);
+    }
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.tag == "Bullet") {
+            AutoDestroy();
+        }
+    }
 }

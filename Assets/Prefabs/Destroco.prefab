@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   timerDeath: 5
+  destExplosion: {fileID: 1082725555965388, guid: e88ebc48237e60c49b918d3afe110d6b,
+    type: 2}
+  deathDelay: 0
 --- !u!212 &212830181409416060
 SpriteRenderer:
   m_ObjectHideFlags: 1
