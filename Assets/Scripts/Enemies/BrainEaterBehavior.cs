@@ -28,7 +28,6 @@ public class BrainEaterBehavior : MonoBehaviour {
             ani.SetTrigger("Eat");
             lastEat = Time.time;
         }
-        print(ani.GetCurrentAnimatorStateInfo(0).IsName("Eating"));
         eating = ani.GetCurrentAnimatorStateInfo(0).IsName("Eating");
         if (eating && !GetComponent<EnemyLifeController>().dying) {
             rb.velocity = new Vector2(-2*speed, 0);
