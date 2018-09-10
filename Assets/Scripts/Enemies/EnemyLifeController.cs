@@ -22,6 +22,7 @@ public class EnemyLifeController : MonoBehaviour {
     public bool hasDeathAnimation = false;
 
     public GameObject lilImpact;
+    public string name;
     public void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -52,7 +53,7 @@ public class EnemyLifeController : MonoBehaviour {
         }
     }
 
-    private void Death()
+    public void Death()
     {
         GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.15f, 0.4f);
         //adciona os pontos ao player
@@ -77,8 +78,9 @@ public class EnemyLifeController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && name != "bakudan")
         {
+            
             collision.gameObject.GetComponent<Player>().TakeDamage(1);
             //Death();
             knockBack(5, collision.transform);

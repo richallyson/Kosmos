@@ -6,7 +6,7 @@ public class BakudanBehaviour : MonoBehaviour {
 
     public float attackSpeed;
 
-    public int dano;
+    public int damage;
 
     public float waitTime;
     private float waitTimeTimer;
@@ -29,6 +29,7 @@ public class BakudanBehaviour : MonoBehaviour {
         {
             Debug.Log("Kosmos não foi encontrado");
         }
+        GetComponent<EnemyLifeController>().name = "bakudan";
     }
 	
 	// Update is called once per frame
@@ -71,15 +72,18 @@ public class BakudanBehaviour : MonoBehaviour {
         invested = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Player") {
+            explode();
+            GetComponent<EnemyLifeController>().Death();
+        }
     }
 
     private void explode() {
+        GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.04f);
         GameObject b = Instantiate(explosion);
-        //GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.04f);
+        b.GetComponent<BakudanExplosion>().damage = damage;
         b.transform.position = transform.position;
-        //b.GetComponent<BakudanExplosion>().explode();
+        
     }
 }
