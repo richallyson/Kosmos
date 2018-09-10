@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3c88ac26a0b5b4e9142dc37fb6a286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Explosion: {fileID: 1113238001025348, guid: 802efda5e697a754fb2e47a9465feae8, type: 2}
+  Explosion: {fileID: 1669047060829654, guid: 4eee60c44c437d14cbccfab79c58167d, type: 2}
   useEffect: 1
   delay: 0.6
   timerDeath: 2
@@ -175,7 +175,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -228,8 +228,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.4
-      minScalar: 0.1
+      scalar: 0.2
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -344,8 +344,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.27
-      minScalar: 0.07
+      scalar: 0.2
+      minScalar: 0.06
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4663,8 +4663,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1150993659
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4722,7 +4722,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 84e96ece169414743b2b8d4d32d70a5a, type: 3}
-  m_Color: {r: 1, g: 0.3915094, b: 0.3915094, a: 1}
+  m_Color: {r: 1, g: 0.6084906, b: 0.7025325, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

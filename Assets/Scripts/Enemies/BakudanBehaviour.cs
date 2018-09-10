@@ -21,7 +21,8 @@ public class BakudanBehaviour : MonoBehaviour {
 
 
     private GameObject player;
-
+    private Animator ani;
+    private ParticleSystem ps;
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Kosmos");
@@ -30,6 +31,10 @@ public class BakudanBehaviour : MonoBehaviour {
             Debug.Log("Kosmos não foi encontrado");
         }
         GetComponent<EnemyLifeController>().name = "bakudan";
+        ani = GetComponent<Animator>();
+        ps = transform.Find("Trail").GetComponent<ParticleSystem>();
+        var emission = ps.emission;
+        emission.rateOverTimeMultiplier = 1;
     }
 	
 	// Update is called once per frame
@@ -55,13 +60,16 @@ public class BakudanBehaviour : MonoBehaviour {
         if(transform.position.x <= borderDist) {
             canWait = true;
             waitTimeTimer = Time.time;
+            ani.SetTrigger("Engage");
         }
     }
 
     //o nome é uma brincadeirinha
     private void investidaTrovao() {
-        if (invested)
+        if (invested || GetComponent<EnemyLifeController>().dying)
             return;
+        var emission = ps.emission;
+        emission.rateOverTimeMultiplier = 10;
         Transform col = player.transform;
         float dif_x = col.position.x - transform.position.x;
         float dif_y = col.position.y - transform.position.y;
