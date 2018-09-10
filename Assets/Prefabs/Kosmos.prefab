@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 50141422810535672}
   - component: {fileID: 114780276512796506}
   - component: {fileID: 95087581605831420}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Kosmos
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191450558704286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0541838, y: -1.8072217, z: 0}
+  m_LocalPosition: {x: -2.88, y: -4.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4514340526386340}
@@ -208,7 +208,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   bullet: {fileID: 1504718177669626, guid: eaa4bc2dacab4ae4eb2549d2f6dc5063, type: 2}
   bullet2: {fileID: 1614338845427758, guid: cbab93c0669649a45b81a54b74193a5a, type: 2}
   bulletSpeed: 20
-  ShootDelay: 0.2
+  ShootDelay: 0.1
   bigblink1: {fileID: 1433913906159470, guid: 690493b694018c049be6e354b5d75d2f, type: 2}
   bigblink2: {fileID: 1583267950726836, guid: a5dd9a5eeb8adf14ca507a6f481b0f93, type: 2}
   DashSpeed: 50
@@ -278,6 +278,7 @@ MonoBehaviour:
   hp: 6
   MaxHp: 6
   score: 0
+  hasControl: 0
 --- !u!198 &198113091156118396
 ParticleSystem:
   m_ObjectHideFlags: 1

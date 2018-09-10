@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletDeath : MonoBehaviour {
+public class EnemyBullet : MonoBehaviour {
+
     public GameObject Explosion;
     private SpriteRenderer sr;
     private CircleCollider2D cc;
@@ -14,18 +15,16 @@ public class BulletDeath : MonoBehaviour {
     public float timerDeath;
     private float timer;
     private bool dead = false;
-    public int Damage = 1;
     // Use this for initialization
-    void Start () {
+    void Start() {
         sr = GetComponent<SpriteRenderer>();
         cc = GetComponent<CircleCollider2D>();
         ps = GetComponent<ParticleSystem>();
-        player = GameObject.Find("Kosmos").GetComponent<Player>();
         timer = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         if (!dead) {
             timer += Time.deltaTime;
             if (timer >= timerDeath) {
@@ -45,34 +44,21 @@ public class BulletDeath : MonoBehaviour {
         dead = true;
     }
     private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.tag == "Alien" && gameObject.tag == "Bullet") {
-            collision.gameObject.GetComponent<EnemyLifeController>().damage(Damage);
+        if (collision.gameObject.tag == "Alien" && gameObject.tag == "Bullet") {
+            collision.gameObject.GetComponent<EnemyLifeController>().damage(1);
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.15f, 0.2f);
             //está sendo implementado no inimigo
             // player.IncreaseScore(collision.gameObject.GetComponent<Alien>().value);
-            AutoDestroy();
         }
 
-        if(collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet") {
+        if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet") {
             collision.gameObject.GetComponent<Player>().TakeDamage(1);
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.2f, 0.3f);
-            AutoDestroy();
         }
-        if(collision.gameObject.tag == "Bullet" && gameObject.tag == "Bullet") {
+        if (collision.gameObject.tag == "Bullet") {
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.1f);
             player.IncreaseScore(10);
-            AutoDestroy();
         }
-        if (collision.gameObject.tag == "EnemyBullet" && gameObject.tag == "Bullet") {
-            GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.08f);
-            player.IncreaseScore(5);
-            AutoDestroy();
-        }
-        if (collision.gameObject.tag == "Objeto" && gameObject.tag == "Bullet") {
-            GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.08f);
-            player.IncreaseScore(10);
-            AutoDestroy();
-        }
-
+        AutoDestroy();
     }
 }

@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4483508097739322}
   - component: {fileID: 212452374168340036}
-  - component: {fileID: 61092282877857660}
   - component: {fileID: 50674785695592404}
   - component: {fileID: 114472670758775102}
   - component: {fileID: 114692201714502180}
   - component: {fileID: 95474697337860846}
+  - component: {fileID: 68567112430641422}
   m_Layer: 0
   m_Name: Atirador 2
   m_TagString: Alien
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1445565109836996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: 0, z: 0}
+  m_LocalPosition: {x: -0.94, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4483508097739322}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391224887116086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.45, y: -4.9, z: -0.06810238}
+  m_LocalPosition: {x: 9.9, y: -5.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4336273622340336}
@@ -85,7 +85,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -94,31 +94,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61092282877857660
-BoxCollider2D:
+--- !u!68 &68567112430641422
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391224887116086}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 8be6341e1ce3f4cec9902bc34f72d20a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.60061073, y: 0.32563162}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.9384615, y: 3.9384615}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.6802101, y: 1.5644293}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.61426544, y: 0.036881447}
+  - {x: -0.6228142, y: -0.5012317}
+  - {x: -0.110001564, y: -0.83140993}
+  - {x: 0.41781044, y: -0.6185646}
+  - {x: 0.7948742, y: -0.30307722}
+  - {x: 1.2848549, y: -0.19781446}
+  - {x: 1.8240204, y: 0.090632915}
+  - {x: 2.408434, y: 0.14735031}
+  - {x: 1.929162, y: 0.3636303}
+  - {x: 1.2170925, y: 0.124661446}
+  - {x: 0.8454542, y: 0.21031713}
+  - {x: 0.26383877, y: 0.7843323}
+  - {x: -0.24432945, y: 0.73663044}
+  - {x: -0.6254072, y: 0.41949558}
+  - {x: -0.6142664, y: 0.036881447}
 --- !u!95 &95474697337860846
 Animator:
   serializedVersion: 3
@@ -150,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   points: 10
-  explosion: {fileID: 0}
-  hasDeathAnimation: 0
+  explosion: {fileID: 1941864763310736, guid: fd7d62073c5841844bc37f9f134c6375, type: 2}
+  hasDeathAnimation: 1
   lilImpact: {fileID: 1305533693161180, guid: 8a3af49c4663f77438076359d552a1b4, type: 2}
 --- !u!114 &114692201714502180
 MonoBehaviour:

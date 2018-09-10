@@ -13,9 +13,10 @@ public class EnemyLifeController : MonoBehaviour {
     private GameObject player;
     private SpriteRenderer sr;
     private EdgeCollider2D ec;
+    private Rigidbody2D rb;
     private Color originalColor;
 
-    private bool dying = false;
+    public bool dying = false;
     public GameObject explosion;
     private float hue = 1.0f;
     public bool hasDeathAnimation = false;
@@ -25,6 +26,7 @@ public class EnemyLifeController : MonoBehaviour {
     {
         sr = GetComponent<SpriteRenderer>();
         ec = GetComponent<EdgeCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Kosmos");
         if (player == null)
         {
@@ -54,16 +56,23 @@ public class EnemyLifeController : MonoBehaviour {
     {
         GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.15f, 0.4f);
         //adciona os pontos ao player
+
         player.GetComponent<Player>().IncreaseScore(points);
         if (hasDeathAnimation) {
             //animação de morte
             dying = true;
-            transform.Find("Trail").GetComponent<ParticleSystem>().Stop();
+            rb.velocity = new Vector2(0, 0);
+            if (transform.Find("Trail") != null) {
+                transform.Find("Trail").GetComponent<ParticleSystem>().Stop();
+            }
             ec.enabled = false;
-            Destroy(gameObject, 1.0f);
             GameObject exp = Instantiate(explosion);
             exp.transform.position = transform.position;
+            Destroy(gameObject, 1.0f);
         }
+    }
+    public void CleanDeath() {
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,6 +87,9 @@ public class EnemyLifeController : MonoBehaviour {
             GameObject lp = Instantiate(lilImpact);
             lp.transform.position = collision.GetContact(0).point;
             //falta dar o knocBack no player também
+        }
+        if(collision.gameObject.tag == "EnemyDeathBound") {
+            CleanDeath();
         }
     }
 
