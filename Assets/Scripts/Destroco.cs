@@ -23,7 +23,7 @@ public class Destroco : MonoBehaviour {
         spd = spd * speed * Random.Range(0.4f, 1.5f);
         rb.velocity = spd;
         timer = 0;
-        sr.color = new Color(Random.Range(0.3f, 5.0f), Random.Range(0.05f, 2.0f), Random.Range(0.05f, 1.5f));
+        sr.color = new Color(Random.Range(0.3f, 5.0f), Random.Range(0.05f, 0.8f), Random.Range(0.05f, 1.5f));
 	}
 	
 	// Update is called once per frame
