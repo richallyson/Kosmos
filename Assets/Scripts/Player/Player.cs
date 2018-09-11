@@ -41,6 +41,9 @@ public class Player : MonoBehaviour {
     public bool hasControl;
     private float controlDelay;
     private float lastTimeControl;
+
+    public int scoreMultiplier = 1;
+    public Vector2[] scoreMultiplierSheet;
     // Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -114,6 +117,8 @@ public class Player : MonoBehaviour {
             rastroEmission.rateOverTimeMultiplier = rastroRate;
             rastroEmission2.rateOverTimeMultiplier = 0;
         }
+        //Score Multiplier Sheet (SMS)
+        //Essa parte do código é responsável por atualizar o SMS do player
     }
 
     public void OffControl(float delay) {
@@ -166,7 +171,7 @@ public class Player : MonoBehaviour {
         }
     }
     public void IncreaseScore(int n) {
-        score += n;
+        score += n*scoreMultiplier;
     }
     public void TakeDamage(int n) {
 

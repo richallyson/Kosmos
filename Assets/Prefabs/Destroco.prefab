@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4249893509233896}
   - component: {fileID: 212830181409416060}
-  - component: {fileID: 61790019477469646}
   - component: {fileID: 50761939634950296}
   - component: {fileID: 114576601832851048}
+  - component: {fileID: 68541725611752720}
   m_Layer: 0
   m_Name: Destroco
   m_TagString: Objeto
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326341852097646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.66, y: -0.15, z: 0}
+  m_LocalPosition: {x: 4.7301373, y: -3.7231615, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,31 +63,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &61790019477469646
-BoxCollider2D:
+--- !u!68 &68541725611752720
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326341852097646}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 8be6341e1ce3f4cec9902bc34f72d20a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.9289539, y: 0.50322485}
+  - {x: -0.9216671, y: 0.36075592}
+  - {x: -0.8440809, y: 0.22818041}
+  - {x: -0.91610885, y: 0.10964298}
+  - {x: -0.9231708, y: -0.12456989}
+  - {x: -0.53873587, y: -0.3880298}
+  - {x: -0.22937202, y: -0.37312675}
+  - {x: -0.04978466, y: -0.4822991}
+  - {x: 0.20722389, y: -0.48489642}
+  - {x: 0.82438517, y: -0.3397863}
+  - {x: 1.03788, y: -0.3188579}
+  - {x: 1.1133814, y: -0.23788977}
+  - {x: 1.1182599, y: -0.03722906}
+  - {x: 1.0492573, y: 0.018872261}
+  - {x: 1.0410614, y: 0.15446758}
+  - {x: 1.0200686, y: 0.24166965}
+  - {x: 0.8416357, y: 0.35964394}
+  - {x: 0.62771416, y: 0.4333043}
+  - {x: 0.5606766, y: 0.641953}
+  - {x: 0.4692049, y: 0.69409895}
+  - {x: 0.2696123, y: 0.6926725}
+  - {x: 0.2632165, y: 0.6562736}
+  - {x: -0.00420475, y: 0.65436053}
+  - {x: -0.26033306, y: 0.7264812}
+  - {x: -0.3251114, y: 0.7957585}
+  - {x: -0.5219803, y: 0.7945967}
+  - {x: -0.5719781, y: 0.7372911}
+  - {x: -0.8051264, y: 0.7254739}
+  - {x: -0.9276402, y: 0.55932665}
+  - {x: -0.92895484, y: 0.50321436}
 --- !u!114 &114576601832851048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,8 +159,8 @@ SpriteRenderer:
   m_SortingLayerID: -868083501
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c48d7dbf78d896e4d824c4a34373ea13, type: 3}
-  m_Color: {r: 0.6944642, g: 0.9257933, b: 0.9622642, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a854cb0d3d6ed7e42a0e17281c106714, type: 3}
+  m_Color: {r: 1, g: 0.8248578, b: 0.5801887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
