@@ -22,7 +22,9 @@ public class EnemyLifeController : MonoBehaviour {
     public bool hasDeathAnimation = false;
 
     public GameObject lilImpact;
-    public string name;
+    public string mname;
+    public float HPDropChance;
+    public GameObject hpdrop;
     public void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -60,6 +62,10 @@ public class EnemyLifeController : MonoBehaviour {
 
         player.GetComponent<Player>().IncreaseScore(points);
         if (hasDeathAnimation) {
+            if(Random.Range(0.0f, 1.0f) < HPDropChance) {
+                GameObject hp = Instantiate(hpdrop);
+                hp.transform.position = transform.position;
+            }
             //animação de morte
             dying = true;
             rb.velocity = new Vector2(0, 0);
@@ -78,7 +84,7 @@ public class EnemyLifeController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && name != "bakudan")
+        if (collision.gameObject.tag == "Player" && mname != "bakudan")
         {
             
             collision.gameObject.GetComponent<Player>().TakeDamage(1);

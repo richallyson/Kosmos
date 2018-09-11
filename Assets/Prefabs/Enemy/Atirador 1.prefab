@@ -165,7 +165,9 @@ MonoBehaviour:
   explosion: {fileID: 1076308524552656, guid: de2d9f6e8f0a15543803a5d84a20eec0, type: 2}
   hasDeathAnimation: 1
   lilImpact: {fileID: 1305533693161180, guid: 8a3af49c4663f77438076359d552a1b4, type: 2}
-  name: 
+  mname: 
+  HPDropChance: 0.05
+  hpdrop: {fileID: 1286039728220840, guid: f3134492e9d823f48931165b4b8ed830, type: 2}
 --- !u!114 &114719375320783232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,7 +182,7 @@ MonoBehaviour:
   bullet: {fileID: 1388238213974144, guid: db3136d8e1e72ba47bc909701a7a344c, type: 2}
   bullet_speed: 10
   x_step: 3
-  speed: 0
+  speed: 5
 --- !u!212 &212212225252130008
 SpriteRenderer:
   m_ObjectHideFlags: 1

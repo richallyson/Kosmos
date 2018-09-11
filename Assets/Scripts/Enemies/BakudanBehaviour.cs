@@ -30,7 +30,7 @@ public class BakudanBehaviour : MonoBehaviour {
         {
             Debug.Log("Kosmos não foi encontrado");
         }
-        GetComponent<EnemyLifeController>().name = "bakudan";
+        GetComponent<EnemyLifeController>().mname = "bakudan";
         ani = GetComponent<Animator>();
         ps = transform.Find("Trail").GetComponent<ParticleSystem>();
         var emission = ps.emission;

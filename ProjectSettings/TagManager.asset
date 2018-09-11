@@ -10,6 +10,7 @@ TagManager:
   - Objeto
   - EnemyBullet
   - EnemyDeathBound
+  - HP Drop
   layers:
   - Default
   - TransparentFX
