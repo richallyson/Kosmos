@@ -9,13 +9,21 @@ public class Atirador1Behaviour : MonoBehaviour {
 
     private float shoot_timer = 0.0f;
     private float shoot_cooldown = 0.5f;
+    private float shootStop;
+    private bool shooting;
 
     private float move_timer = 0.0f;
     private float move_cooldown = 1.0f;
+    
 
     public int x_step = 5;
 
     private GameObject player;
+    public float speed;
+    private float currentSpeed;
+    private float angle;
+
+    private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
@@ -27,19 +35,39 @@ public class Atirador1Behaviour : MonoBehaviour {
         {
             Debug.Log("Kosmos não foi encontrado");
         }
+        rb = GetComponent<Rigidbody2D>();
+        currentSpeed = speed;
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.time - shoot_timer >= shoot_cooldown) {
-            shoot();
-            shoot_timer = Time.time;
+        if (GetComponent<EnemyLifeController>().dying)
+            return;
+        if (!shooting) {
+            currentSpeed = speed;
+            if (player.transform.position.y - transform.position.y > 0.5f) {
+                angle = 135;
+            } else if (player.transform.position.y - transform.position.y < -0.5f) {
+                angle = 225;
+            } else {
+                angle = 180;
+                shooting = true;
+                shootStop = shoot_cooldown*2;
+            }
         }
-
-        if (Time.time - move_timer >= move_cooldown) {
-            moveToPlayer();
-            move_timer = Time.time;
+        if(shooting){
+            currentSpeed = 0;
+            shootStop -= Time.deltaTime;
+            if (Time.time - shoot_timer >= shoot_cooldown) {
+                shoot();
+                shoot_timer = Time.time;
+            }
+            if(shootStop <= 0) {
+                shooting = false;
+            }
         }
+        rb.velocity = new Vector2(currentSpeed * Mathf.Cos(Mathf.Deg2Rad * angle), currentSpeed * Mathf.Sin(Mathf.Deg2Rad * angle));
+        
 	}
 
     //função que move o inimigo a direção do player

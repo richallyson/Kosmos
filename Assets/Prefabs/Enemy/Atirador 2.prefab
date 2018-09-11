@@ -156,7 +156,7 @@ MonoBehaviour:
   hp: 1
   points: 10
   dying: 0
-  explosion: {fileID: 1941864763310736, guid: fd7d62073c5841844bc37f9f134c6375, type: 2}
+  explosion: {fileID: 1076308524552656, guid: de2d9f6e8f0a15543803a5d84a20eec0, type: 2}
   hasDeathAnimation: 1
   lilImpact: {fileID: 1305533693161180, guid: 8a3af49c4663f77438076359d552a1b4, type: 2}
   name: 
