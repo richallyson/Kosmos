@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Destroco : MonoBehaviour {
-    private BoxCollider2D bc;
+    private EdgeCollider2D ec;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private float angle;
@@ -14,7 +14,7 @@ public class Destroco : MonoBehaviour {
     public float deathDelay;
 	// Use this for initialization
 	void Start () {
-        bc = GetComponent<BoxCollider2D>();
+        ec = GetComponent<EdgeCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         angle = Random.Range(3 * Mathf.PI / 4, 5 * Mathf.PI / 4);
@@ -23,6 +23,7 @@ public class Destroco : MonoBehaviour {
         spd = spd * speed;
         rb.velocity = spd;
         timer = 0;
+        sr.color = new Color(Random.Range(0.6f, 1.0f), Random.Range(0.1f, 4.0f), Random.Range(0.1f, 3.0f));
 	}
 	
 	// Update is called once per frame
@@ -35,8 +36,10 @@ public class Destroco : MonoBehaviour {
     public void AutoDestroy() {
         GameObject exp = Instantiate(destExplosion);
         exp.transform.position = transform.position;
+        var main = exp.GetComponent<ParticleSystem>().main;
+        main.startColor.gradient.colorKeys[0].color = sr.color;
         sr.enabled = false;
-        bc.enabled = false;
+        ec.enabled = false;
         Destroy(gameObject, deathDelay);
     }
     private void OnCollisionEnter2D(Collision2D collision) {
