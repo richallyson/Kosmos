@@ -159,7 +159,9 @@ MonoBehaviour:
   explosion: {fileID: 1076308524552656, guid: de2d9f6e8f0a15543803a5d84a20eec0, type: 2}
   hasDeathAnimation: 1
   lilImpact: {fileID: 1305533693161180, guid: 8a3af49c4663f77438076359d552a1b4, type: 2}
-  name: 
+  mname: 
+  HPDropChance: 0.03
+  hpdrop: {fileID: 1286039728220840, guid: f3134492e9d823f48931165b4b8ed830, type: 2}
 --- !u!114 &114692201714502180
 MonoBehaviour:
   m_ObjectHideFlags: 1

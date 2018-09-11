@@ -191,6 +191,7 @@ public class Player : MonoBehaviour {
     }
     public void Cure(int n) {
         hp = Mathf.Min(hp + n, MaxHp);
+        hc.SetBar(hp);
     }
     void Dash() {
         if (energy > 0) {

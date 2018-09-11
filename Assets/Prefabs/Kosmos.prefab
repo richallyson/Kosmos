@@ -279,6 +279,13 @@ MonoBehaviour:
   MaxHp: 6
   score: 0
   hasControl: 0
+  scoreMultiplier: 1
+  scoreMultiplierSheet:
+  - {x: 0, y: 1}
+  - {x: 10, y: 2}
+  - {x: 20, y: 3}
+  - {x: 30, y: 5}
+  - {x: 40, y: 7}
 --- !u!198 &198113091156118396
 ParticleSystem:
   m_ObjectHideFlags: 1
