@@ -274,7 +274,7 @@ MonoBehaviour:
   DashDirection: 0
   energy: 0
   energyMax: 2
-  energyTime: 1.4
+  energyTime: 2.3
   hp: 6
   MaxHp: 6
   score: 0

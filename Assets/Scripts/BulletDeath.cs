@@ -9,17 +9,21 @@ public class BulletDeath : MonoBehaviour {
     public bool useEffect;
     public float delay;
     private ParticleSystem ps;
+    private Rigidbody2D rb;
     private Player player;
 
     public float timerDeath;
     private float timer;
     private bool dead = false;
     public int Damage = 1;
+    public bool useFieldDamage;
+    public GameObject fieldDamage;
     // Use this for initialization
     void Start () {
         sr = GetComponent<SpriteRenderer>();
         cc = GetComponent<CircleCollider2D>();
         ps = GetComponent<ParticleSystem>();
+        rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Kosmos").GetComponent<Player>();
         timer = 0;
     }
@@ -37,6 +41,10 @@ public class BulletDeath : MonoBehaviour {
         if (useEffect) {
             GameObject exp = Instantiate(Explosion);
             exp.transform.position = transform.position;
+        }
+        if (useFieldDamage) {
+            GameObject fd = Instantiate(fieldDamage);
+            fd.transform.position = transform.position;
         }
         sr.enabled = false;
         cc.enabled = false;
