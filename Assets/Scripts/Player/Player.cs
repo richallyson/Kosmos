@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
 
     public int scoreMultiplier = 1;
     public Vector2[] scoreMultiplierSheet;
+    private float playingTime = 0;
     // Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        playingTime += Time.deltaTime;
         shootCounter += Time.deltaTime;
         if(Time.time - lastTimeControl > controlDelay) {
             hasControl = true;
@@ -119,6 +121,12 @@ public class Player : MonoBehaviour {
         }
         //Score Multiplier Sheet (SMS)
         //Essa parte do código é responsável por atualizar o SMS do player
+        foreach (var i in scoreMultiplierSheet) {
+            if (playingTime > i.x) {
+                scoreMultiplier = (int) i.y;
+            }
+        }
+        
     }
 
     public void OffControl(float delay) {

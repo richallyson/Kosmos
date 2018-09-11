@@ -462,6 +462,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4985456855186170, guid: 9d9c48a582f3b1c42991975b5e9fddcb, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.88
@@ -493,6 +498,51 @@ Prefab:
     - target: {fileID: 4985456855186170, guid: 9d9c48a582f3b1c42991975b5e9fddcb, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[0].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[1].x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[1].y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[2].x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[2].y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[3].x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[3].y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[4].x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780276512796506, guid: 9d9c48a582f3b1c42991975b5e9fddcb,
+        type: 2}
+      propertyPath: scoreMultiplierSheet.Array.data[4].y
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d9c48a582f3b1c42991975b5e9fddcb, type: 2}
