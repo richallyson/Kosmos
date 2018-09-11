@@ -20,10 +20,10 @@ public class Destroco : MonoBehaviour {
         angle = Random.Range(3 * Mathf.PI / 4, 5 * Mathf.PI / 4);
         Vector2 spd = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
        // spd = new Vector2(-1, 0);
-        spd = spd * speed;
+        spd = spd * speed * Random.Range(0.4f, 1.5f);
         rb.velocity = spd;
         timer = 0;
-        sr.color = new Color(Random.Range(0.6f, 1.0f), Random.Range(0.1f, 4.0f), Random.Range(0.1f, 3.0f));
+        sr.color = new Color(Random.Range(0.3f, 5.0f), Random.Range(0.05f, 2.0f), Random.Range(0.05f, 1.5f));
 	}
 	
 	// Update is called once per frame
