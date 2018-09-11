@@ -58,7 +58,11 @@ public class BulletDeath : MonoBehaviour {
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.2f, 0.3f);
             AutoDestroy();
         }
-        if(collision.gameObject.tag == "Bullet" && gameObject.tag == "Bullet") {
+        if (collision.gameObject.tag == "Bullet" && gameObject.tag == "EnemyBullet") {
+            GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.05f, 0.05f);
+            AutoDestroy();
+        }
+        if (collision.gameObject.tag == "Bullet" && gameObject.tag == "Bullet") {
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.1f);
             player.IncreaseScore(10);
             AutoDestroy();
@@ -66,7 +70,7 @@ public class BulletDeath : MonoBehaviour {
         if (collision.gameObject.tag == "EnemyBullet" && gameObject.tag == "Bullet") {
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.08f);
             player.IncreaseScore(5);
-            AutoDestroy();
+            
         }
         if (collision.gameObject.tag == "Objeto" && gameObject.tag == "Bullet") {
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.08f);
