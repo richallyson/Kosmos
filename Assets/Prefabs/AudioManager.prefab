@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1094947821758838}
+  m_IsPrefabAsset: 1
+--- !u!1 &1094947821758838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4457500820369858}
+  - component: {fileID: 114311977311596980}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4457500820369858
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1094947821758838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.042286, y: -4.8877664, z: -0.032465212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114311977311596980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1094947821758838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a3ed6b83acdd0418d50c5a515de9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: shot1
+    clip: {fileID: 8300000, guid: 6d24fe8b8f8e95e43889e3ca3d11b66f, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.063
+    randomPitch: 0.064
+    loop: 0
+    isTrack: 0
+  - name: shot2
+    clip: {fileID: 8300000, guid: cf1f265794b966945913a8769c11dab3, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.027
+    randomPitch: 0.027
+    loop: 0
+    isTrack: 0
+  - name: dash
+    clip: {fileID: 8300000, guid: dbb2c383800b651418835d449f575fcf, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.024
+    randomPitch: 0.021
+    loop: 0
+    isTrack: 0
+  - name: meteor col
+    clip: {fileID: 8300000, guid: 0790202150e7ca84180ecb6bd594dcba, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.118
+    randomPitch: 0.116
+    loop: 0
+    isTrack: 0
+  - name: alien col
+    clip: {fileID: 8300000, guid: 3250e731ef8fe9e46912a321cc49f41a, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.036
+    randomPitch: 0.074
+    loop: 0
+    isTrack: 0
+  - name: shoot meteor
+    clip: {fileID: 8300000, guid: 16052942cfb604e479a28238005546b9, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.054
+    randomPitch: 0.078
+    loop: 0
+    isTrack: 0
+  - name: shoot alien
+    clip: {fileID: 8300000, guid: c4cb586f08b4446429e2fc687a317cca, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.042
+    randomPitch: 0.089
+    loop: 0
+    isTrack: 0
+  - name: shoot 2 meteor
+    clip: {fileID: 8300000, guid: c96ca2e950731b048a70163f614ab2c7, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.027
+    randomPitch: 0.067
+    loop: 0
+    isTrack: 0
+  - name: shoot 2 alien
+    clip: {fileID: 8300000, guid: d4e11099b8d1ecf48af563fb5c04b569, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.033
+    randomPitch: 0.073
+    loop: 0
+    isTrack: 0
+  - name: alien 1 death
+    clip: {fileID: 8300000, guid: 99819e7e12ce2534eb6fce67f0b77b59, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: braineater death
+    clip: {fileID: 8300000, guid: 2626c55e00cfdec45b6a0e512bc180d1, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: bakudan death
+    clip: {fileID: 8300000, guid: 11804add499f2ac4d8df5de79416f639, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: bakudan explosion
+    clip: {fileID: 8300000, guid: 5ced635bda8956a43b5be3a93d954574, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: hp drop
+    clip: {fileID: 8300000, guid: 9612285383fbcbe4f8cf2d7a820335af, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: hp drop catch
+    clip: {fileID: 8300000, guid: 242ba97464af9ae4aa38b3e4ee345f7b, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: alien1 shoot
+    clip: {fileID: 8300000, guid: fa4e8007f55c73a44a803d7039abfeff, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: alien1 shoot col
+    clip: {fileID: 8300000, guid: 3250e731ef8fe9e46912a321cc49f41a, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: braineater bite
+    clip: {fileID: 8300000, guid: bdea09ec1f005cd47ae5090f5e7ad44e, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: death
+    clip: {fileID: 8300000, guid: d9fc02c3a5cd59e4997ba5dce47923f0, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: select
+    clip: {fileID: 8300000, guid: 57a436b1599ad7545bbc8e590b11da67, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0

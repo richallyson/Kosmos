@@ -12,8 +12,10 @@ public class Destroco : MonoBehaviour {
     private float timer;
     public GameObject destExplosion;
     public float deathDelay;
-	// Use this for initialization
-	void Start () {
+    private AudioManager audioManager;
+    // Use this for initialization
+    void Start () {
+        audioManager = AudioManager.instance;
         ec = GetComponent<EdgeCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -44,7 +46,15 @@ public class Destroco : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag == "Bullet") {
+            if (collision.gameObject.GetComponent<Rigidbody2D>().mass < 20) {
+                audioManager.PlaySound("shoot meteor");
+            } else {
+                audioManager.PlaySound("shoot 2 meteor");
+            }
             AutoDestroy();
+        }
+        if(collision.gameObject.tag == "Player") {
+            audioManager.PlaySound("meteor col");
         }
     }
 }

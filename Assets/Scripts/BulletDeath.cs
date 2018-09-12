@@ -18,8 +18,10 @@ public class BulletDeath : MonoBehaviour {
     public int Damage = 1;
     public bool useFieldDamage;
     public GameObject fieldDamage;
+    private AudioManager audioManager;
     // Use this for initialization
     void Start () {
+        audioManager = AudioManager.instance;
         sr = GetComponent<SpriteRenderer>();
         cc = GetComponent<CircleCollider2D>();
         ps = GetComponent<ParticleSystem>();
@@ -58,15 +60,22 @@ public class BulletDeath : MonoBehaviour {
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.15f, 0.2f);
             //está sendo implementado no inimigo
             // player.IncreaseScore(collision.gameObject.GetComponent<Alien>().value);
+            if (rb.mass < 20) {
+                audioManager.PlaySound("shoot alien");
+            } else {
+                audioManager.PlaySound("shoot 2 alien");
+            }
             AutoDestroy();
         }
 
         if(collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet") {
+            audioManager.PlaySound("alien1 shoot col");
             collision.gameObject.GetComponent<Player>().TakeDamage(1);
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.2f, 0.3f);
             AutoDestroy();
         }
         if (collision.gameObject.tag == "Bullet" && gameObject.tag == "EnemyBullet") {
+            audioManager.PlaySound("alien1 shoot col");
             GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.05f, 0.05f);
             AutoDestroy();
         }
