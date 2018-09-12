@@ -24,9 +24,10 @@ public class Atirador1Behaviour : MonoBehaviour {
     private float angle;
 
     private Rigidbody2D rb;
-
-	// Use this for initialization
-	void Start () {
+    private AudioManager audioManager;
+    // Use this for initialization
+    void Start () {
+        audioManager = AudioManager.instance;
         shoot_timer = -100.0f;
         move_timer = -100.0f;
 
@@ -80,6 +81,7 @@ public class Atirador1Behaviour : MonoBehaviour {
 
     //função que faz o inimigo atirar
     private void shoot() {
+        audioManager.PlaySound("alien1 shoot");
         GameObject b = Instantiate(bullet);
         //GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.04f);
         b.transform.position = transform.Find("BulletPosition").position;

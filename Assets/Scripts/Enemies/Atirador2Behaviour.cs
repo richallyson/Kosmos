@@ -11,11 +11,12 @@ public class Atirador2Behaviour : MonoBehaviour {
     public float shoot_cooldown = 1.0f;
 
     public float mov_speed;
+    private AudioManager audioManager;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        audioManager = AudioManager.instance;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,6 +33,7 @@ public class Atirador2Behaviour : MonoBehaviour {
 
     private void shoot()
     {
+        audioManager.PlaySound("alien1 shoot");
         GameObject b = Instantiate(bullet);
         //GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.04f);
         b.transform.position = transform.Find("BulletPosition").position;

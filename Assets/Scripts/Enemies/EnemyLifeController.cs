@@ -25,8 +25,10 @@ public class EnemyLifeController : MonoBehaviour {
     public string mname;
     public float HPDropChance;
     public GameObject hpdrop;
+    private AudioManager audioManager;
     public void Start()
     {
+        audioManager = AudioManager.instance;
         sr = GetComponent<SpriteRenderer>();
         ec = GetComponent<EdgeCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -62,9 +64,17 @@ public class EnemyLifeController : MonoBehaviour {
 
         player.GetComponent<Player>().IncreaseScore(points);
         if (hasDeathAnimation) {
+            if(mname == "bakudan") {
+                audioManager.PlaySound("bakudan death");
+            } else if(mname == "braineater") {
+                audioManager.PlaySound("braineater death");
+            } else {
+                audioManager.PlaySound("alien 1 death");
+            }
             if(Random.Range(0.0f, 1.0f) < HPDropChance) {
                 GameObject hp = Instantiate(hpdrop);
                 hp.transform.position = transform.position;
+                audioManager.PlaySound("hp drop");
             }
             //animação de morte
             dying = true;
@@ -94,6 +104,7 @@ public class EnemyLifeController : MonoBehaviour {
             damage(1);
             GameObject lp = Instantiate(lilImpact);
             lp.transform.position = collision.GetContact(0).point;
+            audioManager.PlaySound("alien col");
             //falta dar o knocBack no player também
         }
         if(collision.gameObject.tag == "EnemyDeathBound") {

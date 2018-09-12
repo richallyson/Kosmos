@@ -5,11 +5,14 @@ using UnityEngine;
 public class BakudanExplosion : MonoBehaviour {
     public GameObject redExplosion;
     public int damage;
+    private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
         GameObject exp = Instantiate(redExplosion);
         exp.transform.position = transform.position;
-	}
+        audioManager = AudioManager.instance;
+        audioManager.PlaySound("bakudan explosion");
+    }
 	
 	// Update is called once per frame
 	void Update () {

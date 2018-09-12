@@ -10,13 +10,14 @@ public class BrainEaterBehavior : MonoBehaviour {
     public float EatDelay;
     private float lastEat;
     public bool eating;
-    
-    
-	// Use this for initialization
-	void Start () {
+    private AudioManager audioManager;
+
+    // Use this for initialization
+    void Start () {
         rb = GetComponent<Rigidbody2D>();
-        
+        audioManager = AudioManager.instance;
         ani = GetComponent<Animator>();
+        GetComponent<EnemyLifeController>().mname = "braineater";
         rb.velocity = new Vector2(-speed, 0);
         lastEat = Time.time;
         
@@ -30,6 +31,7 @@ public class BrainEaterBehavior : MonoBehaviour {
         }
         eating = ani.GetCurrentAnimatorStateInfo(0).IsName("Eating");
         if (eating && !GetComponent<EnemyLifeController>().dying) {
+            audioManager.PlaySound("braineater bite");
             rb.velocity = new Vector2(-2*speed, 0);
         }
 

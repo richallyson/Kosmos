@@ -14,8 +14,10 @@ public class HPDrop : MonoBehaviour {
     public GameObject fire;
     public float Decay = 10.0f;
     private bool dead;
-	// Use this for initialization
-	void Start () {
+    private AudioManager audioManager;
+    // Use this for initialization
+    void Start () {
+        audioManager = AudioManager.instance;
         cc = GetComponent<CircleCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         ps = GetComponent<ParticleSystem>();
@@ -50,6 +52,7 @@ public class HPDrop : MonoBehaviour {
             GameObject f = Instantiate(fire);
             collision.gameObject.GetComponent<Player>().Cure(2);
             AutoDestroy();
+            audioManager.PlaySound("hp drop catch");
         }
     }
 }

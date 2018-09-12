@@ -45,6 +45,8 @@ public class Player : MonoBehaviour {
     public int scoreMultiplier = 1;
     public Vector2[] scoreMultiplierSheet;
     private float playingTime = 0;
+
+    private AudioManager audioManager;
     // Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour {
         hc = GameObject.Find("Health").GetComponent<HealthController>();
         hp = MaxHp;
         lastTimeControl = 0;
+        audioManager = AudioManager.instance;
     }
 
     // Update is called once per frame
@@ -135,6 +138,7 @@ public class Player : MonoBehaviour {
         hasControl = false;
     }
     void Shoot1() {
+        audioManager.PlaySound("shot1");
         ani.SetTrigger("Shoot1");
         GameObject b = Instantiate(bullet);
         GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.04f, 0.04f);
@@ -153,6 +157,7 @@ public class Player : MonoBehaviour {
     }
     void Shoot2() {
         if (energy > 0) {
+            audioManager.PlaySound("shot2");
             energy--;
             ani.SetTrigger("Shoot2");
             GameObject b = Instantiate(bullet2);
@@ -187,6 +192,9 @@ public class Player : MonoBehaviour {
             hp -= n;
             hc.SetBar(hp);
         }
+        //if(hp <= 0) {
+            //audioManager.PlaySound("death");
+        //}
 
     }
     public void Cure(int n) {
@@ -195,6 +203,7 @@ public class Player : MonoBehaviour {
     }
     void Dash() {
         if (energy > 0) {
+            audioManager.PlaySound("dash");
             rb.velocity = new Vector2(0, 0);
             Dashing = true;
             energy --;
