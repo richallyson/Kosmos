@@ -95,7 +95,7 @@ MonoBehaviour:
   useEffect: 1
   delay: 1
   timerDeath: 1.8
-  Damage: 3
+  Damage: 6
   useFieldDamage: 1
   fieldDamage: {fileID: 1154244809457408, guid: a52c8fb5e9237dd41b0de5973eef45fb,
     type: 2}
