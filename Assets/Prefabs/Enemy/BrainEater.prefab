@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  points: 20
+  points: 150
   dying: 0
   explosion: {fileID: 1941864763310736, guid: fd7d62073c5841844bc37f9f134c6375, type: 2}
   hasDeathAnimation: 1
