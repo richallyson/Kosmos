@@ -18,8 +18,8 @@ public class Tutorial : MonoBehaviour {
 
     // Update is called once per frame
     void Update(){
-        if (fade.done || Input.anyKeyDown){
-            audioManager.PlaySound("miasma");
+        if (fade.done || Input.GetKeyDown("x")){
+            audioManager.PlaySound("select");
             SceneManager.LoadScene("level1");
         }
     }

@@ -33,6 +33,9 @@ public class Sound{
 	public void Stop(){
 		source.Stop ();
 	}
+    public void SetVolume(float volume) {
+        source.volume = volume;
+    }
 	public AudioSource GetSource(){
 		return source;
 	}
@@ -86,6 +89,14 @@ public class AudioManager : MonoBehaviour {
 		//não achou nenhum som
 		Debug.Log("não existe som chamado " + _name + " na lista. Confira o som no AudioManager ou adicione.");
 	}
+    public void SetVolume(float volume) {
+        for (int i = 0; i < sounds.Length; i++) {
+            if (sounds[i].name == isPlaying) {
+                sounds[i].SetVolume(volume);
+                return;
+            }
+        }
+    }
 	public bool IsPlaying(string _name){
 		return _name == isPlaying;
 	}

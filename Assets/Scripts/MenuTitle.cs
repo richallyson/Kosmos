@@ -13,7 +13,8 @@ public class MenuTitle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKeyDown) {
+        if (Input.GetKeyDown("x")) {
+            audioManager.PlaySound("select");
             SceneManager.LoadScene("Tutorial");
         }
 	}
