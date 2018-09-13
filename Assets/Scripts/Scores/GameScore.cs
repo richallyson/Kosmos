@@ -8,7 +8,7 @@ public class GameScore : IEquatable<GameScore>, IComparable<GameScore> {
 
     public int score;
     public String name;
-
+    
     public int CompareTo(GameScore other)
     {
         if (other == null)

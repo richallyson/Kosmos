@@ -83,7 +83,10 @@ public class ScoreDataController : MonoBehaviour {
         int i = 1;
         foreach (GameScore s in scores)
         {
-            texto += i + ". " + s.name + "\n" + s.score + "\n";
+            if(i > 5) {
+                break;
+            }
+            texto += i + ". " + s.name + " " + s.score + "\n";
             i++;
         }
 
