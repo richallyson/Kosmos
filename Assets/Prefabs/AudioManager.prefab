@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: pg311
+    clip: {fileID: 8300000, guid: d21590ab777f7ae45b062470203aa5b4, type: 3}
+    volume: 1
+    pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 0
