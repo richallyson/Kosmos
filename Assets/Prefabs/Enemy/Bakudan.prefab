@@ -157,12 +157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e64f6d00fe88ed4ba891e5945c69fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 8
+  attackSpeed: 16
   damage: 3
   waitTime: 1
-  explosionRadius: 3
+  explosionRadius: 5
   explosion: {fileID: 1135315986645448, guid: 26b02adff1006da438de6c70ddc86896, type: 2}
-  borderDist: 5
+  borderDist: 10
 --- !u!114 &114505365184524704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4dc2a4cff62bd4b83d402a4561ee73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
-  points: 30
+  hp: 8
+  points: 250
   dying: 0
   explosion: {fileID: 1941864763310736, guid: fd7d62073c5841844bc37f9f134c6375, type: 2}
   hasDeathAnimation: 1

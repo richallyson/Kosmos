@@ -162,7 +162,7 @@ public class Player : MonoBehaviour {
             energy--;
             ani.SetTrigger("Shoot2");
             GameObject b = Instantiate(bullet2);
-            GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.1f, 0.12f);
+            GameObject.Find("Main Camera").GetComponent<ShakeCamera>().Shake(0.6f, 0.20f);
             GameObject blink = Instantiate(bigblink2);
             if (sr.flipX) {
                 b.transform.position = new Vector3(transform.Find("bulletPosition").localPosition.x * 1.1f + transform.position.x, transform.Find("bulletPosition").position.y, 0);

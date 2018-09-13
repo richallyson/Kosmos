@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114719375320783232}
   - component: {fileID: 111310665397575628}
   - component: {fileID: 68242512093430388}
+  - component: {fileID: 95611877224301598}
   m_Layer: 14
   m_Name: Atirador 1
   m_TagString: Alien
@@ -134,6 +135,24 @@ EdgeCollider2D:
   - {x: -0.6955128, y: 1.3456638}
   - {x: -1.0712357, y: 0.96466184}
   - {x: -1.0671005, y: 0.8048928}
+--- !u!95 &95611877224301598
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140229672991750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0948d1343b4797a4a8bc31a0cdf22e8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!111 &111310665397575628
 Animation:
   m_ObjectHideFlags: 1
@@ -159,8 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4dc2a4cff62bd4b83d402a4561ee73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
-  points: 10
+  hp: 3
+  points: 100
   dying: 0
   explosion: {fileID: 1076308524552656, guid: de2d9f6e8f0a15543803a5d84a20eec0, type: 2}
   hasDeathAnimation: 1
