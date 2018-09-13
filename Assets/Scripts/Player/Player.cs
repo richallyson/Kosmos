@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     private Rigidbody2D rb;
@@ -192,9 +193,9 @@ public class Player : MonoBehaviour {
             hp -= n;
             hc.SetBar(hp);
         }
-        //if(hp <= 0) {
-            //audioManager.PlaySound("death");
-        //}
+        if(hp <= 0) {
+            death();
+        }
 
     }
     public void Cure(int n) {
@@ -251,5 +252,11 @@ public class Player : MonoBehaviour {
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed * Mathf.Cos(ang), speed * Mathf.Sin(ang));
         OffControl(0.5f);
 
+    }
+
+    public void death() {
+        audioManager.PlaySound("death");
+        PlayerPrefs.SetInt("score", score);
+        SceneManager.LoadScene("SaveScore", LoadSceneMode.Single);
     }
 }
