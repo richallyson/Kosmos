@@ -54,6 +54,11 @@ public class Destroco : MonoBehaviour {
             AutoDestroy();
         }
         if(collision.gameObject.tag == "Player") {
+            var speed = Mathf.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y);
+            if(speed > 4) {
+                collision.gameObject.GetComponent<Player>().TakeDamage(1);
+                AutoDestroy();
+            }
             audioManager.PlaySound("meteor col");
         }
     }

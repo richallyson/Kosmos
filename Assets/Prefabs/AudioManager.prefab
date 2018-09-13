@@ -214,7 +214,7 @@ MonoBehaviour:
     isTrack: 0
   - name: select
     clip: {fileID: 8300000, guid: 57a436b1599ad7545bbc8e590b11da67, type: 3}
-    volume: 1
+    volume: 0.579
     pitch: 1
     randomVolume: 0
     randomPitch: 0
