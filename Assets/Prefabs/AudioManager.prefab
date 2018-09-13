@@ -220,11 +220,11 @@ MonoBehaviour:
     randomPitch: 0
     loop: 0
     isTrack: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: titulo
+    clip: {fileID: 8300000, guid: 5471b892a1769f54fb4a39e92e39e1ed, type: 3}
+    volume: 1
+    pitch: 1
     randomVolume: 0
     randomPitch: 0
-    loop: 0
-    isTrack: 0
+    loop: 1
+    isTrack: 1

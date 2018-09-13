@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class Fade : MonoBehaviour {
     private SpriteRenderer sr;
-    private Color original;
+    public Color initialColor;
     public Gradient fade;
-    public float start;
-    public float duration;
+    public float start; //3
+    public float duration; //5
     private float timer;
     public bool done;
+    public bool loop;
     // Use this for initialization
 	void Start () {
         timer = 0;
         done = false;
         sr = GetComponent<SpriteRenderer>();
+        sr.color = initialColor;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
-        if(timer > start && timer < duration) {
+        if(timer > start && timer - start < duration) {
             sr.color = fade.Evaluate((timer - start)/duration);
         }
-        if(timer >= duration) {
+        if(timer - start >= duration && !loop) {
             done = true;
+        }
+        if (timer - start >= duration && loop) {
+            timer = start;
         }
 	}
 }
