@@ -205,7 +205,7 @@ MonoBehaviour:
     loop: 0
     isTrack: 0
   - name: death
-    clip: {fileID: 8300000, guid: d9fc02c3a5cd59e4997ba5dce47923f0, type: 3}
+    clip: {fileID: 8300000, guid: 7f97c0c735bdf394b958ee20081899bd, type: 3}
     volume: 1
     pitch: 1
     randomVolume: 0
@@ -223,6 +223,22 @@ MonoBehaviour:
   - name: titulo
     clip: {fileID: 8300000, guid: 5471b892a1769f54fb4a39e92e39e1ed, type: 3}
     volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+    isTrack: 1
+  - name: miasma
+    clip: {fileID: 8300000, guid: 0dc2d9fac67a8f143a95a1af0d7627e8, type: 3}
+    volume: 0.778
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+    isTrack: 1
+  - name: game over
+    clip: {fileID: 8300000, guid: 68de6d8890831194da96e798298bd84a, type: 3}
+    volume: 0.856
     pitch: 1
     randomVolume: 0
     randomPitch: 0

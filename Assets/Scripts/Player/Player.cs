@@ -256,6 +256,7 @@ public class Player : MonoBehaviour {
 
     public void death() {
         audioManager.PlaySound("death");
+        audioManager.StopSound("miasma");
         PlayerPrefs.SetInt("score", score);
         SceneManager.LoadScene("SaveScore", LoadSceneMode.Single);
     }

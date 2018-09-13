@@ -12,13 +12,14 @@ public class Tutorial : MonoBehaviour {
     void Start () {
         fade = GetComponent<Fade>();
         audioManager = AudioManager.instance;
+        audioManager.StopSound("titulo");
 
     }
 
     // Update is called once per frame
     void Update(){
         if (fade.done || Input.anyKeyDown){
-            audioManager.StopSound("titulo");
+            audioManager.PlaySound("miasma");
             SceneManager.LoadScene("level1");
         }
     }

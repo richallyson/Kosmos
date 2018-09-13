@@ -26,6 +26,7 @@ public class EnemyLifeController : MonoBehaviour {
     public float HPDropChance;
     public GameObject hpdrop;
     private AudioManager audioManager;
+
     public void Start()
     {
         audioManager = AudioManager.instance;
@@ -47,6 +48,7 @@ public class EnemyLifeController : MonoBehaviour {
             hue -= Time.deltaTime;
             sr.color = new Color(originalColor.r, originalColor.g, originalColor.b, hue);
         }
+        
     }
 
     public void damage(int amount)
@@ -55,6 +57,10 @@ public class EnemyLifeController : MonoBehaviour {
         if (hp <= 0) {
             Death();
         }
+    }
+
+    public void Flick() {
+
     }
 
     public void Death()

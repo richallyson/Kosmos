@@ -10,12 +10,13 @@ public class SubmitScore : MonoBehaviour {
     public InputField inputField;
 
     public Button button;
-
+    private AudioManager audioManager;
 
 	// Use this for initialization
 	void Start () {
         //PlayerPrefs.SetInt("score", 2500);
-		
+        audioManager = AudioManager.instance;
+        
 	}
 	
 	// Update is called once per frame
@@ -39,6 +40,8 @@ public class SubmitScore : MonoBehaviour {
         gameScore.score = score;
 
         GetComponent<ScoreDataController>().AddScore(gameScore);
+        audioManager.StopSound("death");
+        audioManager.PlaySound("game over");
         SceneManager.LoadScene("Scores", LoadSceneMode.Single);
     }
 }
