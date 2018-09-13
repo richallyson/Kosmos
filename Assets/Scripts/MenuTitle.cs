@@ -14,8 +14,7 @@ public class MenuTitle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.anyKeyDown) {
-            audioManager.StopSound("titulo");
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Tutorial");
         }
 	}
 }
