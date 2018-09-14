@@ -84,7 +84,7 @@ public class Player : MonoBehaviour {
                 if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 || Mathf.Abs(Input.GetAxis("Vertical")) > 0) {
                     float angle = Mathf.Atan2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
                     rb.velocity = new Vector2(Mathf.Cos(angle) * Mathf.Abs(Input.GetAxis("Horizontal")) * speed, Mathf.Sin(angle) * Mathf.Abs(Input.GetAxis("Vertical")) * speed);
-                    Flip(Input.GetAxis("Horizontal"));
+                    //Flip(Input.GetAxis("Horizontal"));
                 } else {
                     rb.velocity = new Vector2(0, 0);
                 }
