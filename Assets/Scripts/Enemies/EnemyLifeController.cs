@@ -70,7 +70,7 @@ public class EnemyLifeController : MonoBehaviour {
 
         player.GetComponent<Player>().IncreaseScore(points);
         if (hasDeathAnimation) {
-            if(mname == "bakudan") {
+            if(mname == "bakudan" || mname == "spinebomb") {
                 audioManager.PlaySound("bakudan death");
             } else if(mname == "braineater") {
                 audioManager.PlaySound("braineater death");
