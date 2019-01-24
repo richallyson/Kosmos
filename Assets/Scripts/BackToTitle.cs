@@ -12,7 +12,7 @@ public class BackToTitle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("x")) {
+        if (Input.GetButtonDown("Fire1")) {
             audioManager.StopSound("game over");
             SceneManager.LoadScene("Logo");
         }

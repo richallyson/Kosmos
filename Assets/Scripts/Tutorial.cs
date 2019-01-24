@@ -18,7 +18,7 @@ public class Tutorial : MonoBehaviour {
 
     // Update is called once per frame
     void Update(){
-        if (fade.done || Input.GetKeyDown("x")){
+        if (fade.done || Input.GetButtonDown("Fire1")){
             audioManager.PlaySound("select");
             SceneManager.LoadScene("level1");
         }

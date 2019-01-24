@@ -53,8 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: pg311
-    clip: {fileID: 8300000, guid: d21590ab777f7ae45b062470203aa5b4, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 86c9dfd4c6d84cf4a9f6a807c883e359, type: 3}
+    volume: 0.854
     pitch: 1
     randomVolume: 0
     randomPitch: 0
